@@ -1,0 +1,16 @@
+{
+  "name": "NetCore.Simple",
+  "description": "Frontend code for NetCore.Simple nuget package",
+  "main": "",
+  "keywords": [
+    "netcore",
+    "simple",
+    "netcore.simple"
+  ],
+  "authors": [
+    "Neville Nazerane"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true
+}
