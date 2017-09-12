@@ -1,7 +1,10 @@
 {
-  "name": "NetCore.Simple",
+  "name": "NetCore-Simple",
   "description": "Frontend code for NetCore.Simple nuget package",
-  "main": "",
+  "main": [
+    "js/styles.js",
+    "css/style.css"
+  ],
   "keywords": [
     "netcore",
     "simple",
@@ -10,7 +13,8 @@
   "authors": [
     "Neville Nazerane"
   ],
+  "dependencies": {"jquery": "~3.2.1", "angular": "~1.6.6"},
   "license": "MIT",
-  "homepage": "",
+  "homepage": "http://netcoresimple.azurewebsites.net/",
   "private": true
 }
