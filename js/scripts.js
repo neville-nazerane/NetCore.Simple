@@ -27,7 +27,7 @@
             controller: function ($scope, $rootScope, $attrs, $element, $http) {
                 $scope.errorsHandle = {};
                 if (typeof ($scope.frm) === "undefined") $scope.frm = {};
-				if (typeof (formData[$attrs.formEditor]) !== "undefined") $scope.frm = formData[$attrs.formEditor];
+                if (typeof (formData[$attrs.formData]) !== "undefined") $scope.frm = formData[$attrs.formData];
                 $element.bind('submit', function () {
                     $.ajax({
                         type: onlyDefined($attrs.formMethod, "POST"),
@@ -43,8 +43,10 @@
                                     $scope.errorsHandle = {};
                                     if (typeof ($attrs.formSuccess) !== "undefined")
                                         $scope.$eval($attrs.formSuccess);
-                                    if (typeof ($attrs.formSuccess) !== "undefined")
+                                    if (typeof ($attrs.formSuccessUrl) !== "undefined")
                                         window.location = $attrs.formSuccessUrl;
+                                    if ('formSuccessReload' in $attrs)
+                                        window.location.reload();
                                 });
                             }
                         },

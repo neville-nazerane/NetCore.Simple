@@ -1,0 +1,40 @@
+@model NetCore.Simple.Models.Editor
+
+@{ 
+    string dataID = Guid.NewGuid().ToString("N");
+}
+
+@if (Model.Data != null)
+{
+    <script>
+        formData["@dataID"] = @Html.toJS(Model.Data);
+    </script>
+}
+
+
+<div class="container body-content deletable">
+
+    <form data-form-data="@dataID" data-form-method="Delete" data-form-submit="@Context.Request.Path" class="delete-conf" data-form-success-reload>
+
+        <h3>Are you sure you want to delete?</h3>
+
+        <input type="button" class="btn btn-danger" onclick="$('.deletable').removeClass('shown-del')" value="No" />
+
+        <input type="submit" class="btn btn-success" value="Yes" />
+
+    </form>
+
+    <form data-form-data="@dataID" data-form-method="@Model.Method" data-form-submit="@Context.Request.Path" data-form-success-reload>
+
+        @RenderBody()
+
+        <input type="submit" class="btn btn-primary" value="@Model.SubmitText" />
+
+        @if (Model.IsEditing)
+        {
+            <input type="button" class="btn btn-danger" onclick="$('.deletable').addClass('shown-del')" value="Delete" />
+        }
+
+    </form>
+
+</div>

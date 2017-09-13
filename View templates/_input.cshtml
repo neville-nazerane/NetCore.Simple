@@ -1,8 +1,8 @@
 @model NetCore.Simple.Models.InputInfo
 
-@{ var UniqueID = Guid.NewGuid().ToString("N") }
+@{ string UniqueID = Guid.NewGuid().ToString("N"); }
 
-<div class="form-group has-feedback" data-ng-input-info="@Model.Name">
+<div class="form-group has-feedback" data-input-info="@Model.Name">
     <div class="row">
         <label class="col-sm-2 control-label" for="@UniqueID">@Model.Label</label>
         <div class="col-sm-10">
