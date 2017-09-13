@@ -27,6 +27,7 @@
             controller: function ($scope, $rootScope, $attrs, $element, $http) {
                 $scope.errorsHandle = {};
                 if (typeof ($scope.frm) === "undefined") $scope.frm = {};
+				if (typeof (formData[$attrs.formEditor]) !== "undefined") $scope.frm = formData[$attrs.formEditor];
                 $element.bind('submit', function () {
                     $.ajax({
                         type: onlyDefined($attrs.formMethod, "POST"),
@@ -82,6 +83,15 @@
         };
     });
 
+    // app.directive("formData", function () {
+        // return {
+            // restrict: 'A',
+            // scope: true,
+            // controller: function ($scope, $attrs) {
+                // if (typeof (formData[$attrs.formEditor]) !== "undefined") $scope.frm = formData[$attrs.formEditor];
+            // }
+        // };
+    // });
 
     // end form submit
 
