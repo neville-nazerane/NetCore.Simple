@@ -27,7 +27,7 @@
             controller: function ($scope, $rootScope, $attrs, $element, $http) {
                 $scope.errorsHandle = {};
                 if (typeof ($scope.frm) === "undefined") $scope.frm = {};
-                if (typeof (formData[$attrs.formData]) !== "undefined") $scope.frm = formData[$attrs.formData];
+                if (typeof (formData) !== "undefined" && typeof (formData[$attrs.formData]) !== "undefined") $scope.frm = formData[$attrs.formData];
                 $element.bind('submit', function () {
                     $.ajax({
                         type: onlyDefined($attrs.formMethod, "POST"),
