@@ -1,7 +1,7 @@
 {
-  "name": "NetCore-Simple",
+  "name": "netCore-simple",
   "description": "Frontend code for NetCore.Simple nuget package",
-  "version": "1.2",
+  "version": "1.5",
   "main": [
     "js/styles.js",
     "css/style.css"
