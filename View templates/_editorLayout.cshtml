@@ -2,8 +2,7 @@
 @model NetCore.Simple.Models.Editor
 
 @{
-
-    string dataID = Guid.NewGuid().ToString("N");
+    
     string submitURL = Model.SubmitURL == null ?
                         Context.Request.Path.ToString() : Url.Content("~/" + Model.SubmitURL);
     string data = Model.Data == null ? null : Html.FormData(Model.Data);
