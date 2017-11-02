@@ -2,7 +2,7 @@
 
 function addFormData(key, val) {
     if (typeof (formData) === "undefined")
-        var formData = {};
+        formData = {};
     formData[key] = val;
 }
 

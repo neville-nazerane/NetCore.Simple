@@ -6,19 +6,13 @@
     string dataID = Guid.NewGuid().ToString("N");
     string submitURL = Model.SubmitURL == null ?
                         Context.Request.Path.ToString() : Url.Content("~/" + Model.SubmitURL);
-}
-
-@if (Model.Data != null)
-{
-    <script>
-        addFormData("@dataID", @Html.toJS(Model.Data))
-    </script>
+    string data = Model.Data == null ? null : Html.FormData(Model.Data);
 }
 
 
 <div class="container body-content deletable">
 
-    <form data-form-data="@dataID" data-form-method="@Model.Method" data-form-submit="@submitURL" data-form-success-url="@submitURL">
+    <form data-form-data="@data" data-form-method="@Model.Method" data-form-submit="@submitURL" data-form-success-url="@submitURL">
 
         @RenderBody()
 
@@ -31,7 +25,7 @@
 
     </form>
 
-    <form data-form-data="@dataID" data-form-method="Delete" data-form-submit="@submitURL"
+    <form data-form-data="@data" data-form-method="Delete" data-form-submit="@submitURL"
           class="delete-conf" data-form-success-url="@submitURL">
 
         <h3>Are you sure you want to delete?</h3>
