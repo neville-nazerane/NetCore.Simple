@@ -1,5 +1,10 @@
 
-var formData = {};
+
+function addFormData(key, val) {
+    if (typeof (formData) === "undefined")
+        var formData = {};
+    formData[key] = val;
+}
 
 (function () {
 
@@ -17,7 +22,6 @@ var formData = {};
                         $attrs.popupUrl
                         , 'pop', 'width=' + $attrs.popupWidth + ', height=' + $attrs.popupHeight);
                 });
-
             }
         };
     });
@@ -29,7 +33,8 @@ var formData = {};
             controller: function ($scope, $rootScope, $attrs, $element, $http) {
                 $scope.errorsHandle = {};
                 if (typeof ($scope.frm) === "undefined") $scope.frm = {};
-                if (typeof (formData[$attrs.formData]) !== "undefined") $scope.frm = formData[$attrs.formData];
+                if (typeof (formData) !== "undefined" && typeof (formData[$attrs.formData]) !== "undefined")
+                                        $scope.frm = formData[$attrs.formData];
                 $element.bind('submit', function () {
                     $.ajax({
                         type: onlyDefined($attrs.formMethod, "POST"),
@@ -125,7 +130,6 @@ var formData = {};
                                 $scope.$apply(function () {
                                     $scope.options = data.responseJSON;
                                 });
-
                             }
                         }
                     });

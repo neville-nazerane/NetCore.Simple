@@ -11,9 +11,8 @@
 @if (Model.Data != null)
 {
     <script>
-            formData["@dataID"] = @Html.toJS(Model.Data);
+        addFormData("@dataID", @Html.toJS(Model.Data))
     </script>
-
 }
 
 
